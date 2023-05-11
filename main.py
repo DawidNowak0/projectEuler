@@ -23,4 +23,15 @@ def problem2():
     print(sum)
 
 
-problem2()
+def problem6():
+    sumOfSquares = 0
+    sum = 0
+
+    for i in range(101):
+        sumOfSquares += i*i
+        sum += i
+
+    squaresOfSum = sum*sum
+
+    print(squaresOfSum-sumOfSquares)
+
