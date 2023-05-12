@@ -86,10 +86,9 @@ def problem7():
 
     while len(prime) < 10001:
         is_prime = 1
-        for i in range(n):
-            if i != 0 and i != 1:
-                if n % i == 0:
-                    is_prime = 0
+        for i in prime:
+            if n % i == 0:
+                is_prime = 0
         if is_prime == 1:
             prime.append(n)
         n += 1
@@ -118,3 +117,28 @@ def problem8():
                     largest_product = product
 
     print(largest_product)
+
+
+def problem10():
+    # Summation of primes
+
+    sum = 0
+    n = 2
+    prime = []
+
+    while n < 2000000:
+        is_prime = 1
+        for i in prime:
+            if i > int(n/2)+1:
+                break
+            if n % i == 0:
+                is_prime = 0
+        if is_prime == 1:
+            prime.append(n)
+            print(n)
+        n += 1
+    for i in prime:
+        sum += i
+    print(sum)
+
+   
