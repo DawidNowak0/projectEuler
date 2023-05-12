@@ -76,3 +76,22 @@ def problem6():
     squares_of_sum = sum*sum
 
     print(squares_of_sum-sum_of_squares)
+
+
+def problem7():
+    # 10001st prime
+
+    prime = []
+    n = 2
+
+    while len(prime) < 10001:
+        is_prime = 1
+        for i in range(n):
+            if i != 0 and i != 1:
+                if n % i == 0:
+                    is_prime = 0
+        if is_prime == 1:
+            prime.append(n)
+        n += 1
+
+    print(prime[len(prime)-1])
