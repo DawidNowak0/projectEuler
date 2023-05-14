@@ -1,3 +1,6 @@
+import math
+
+
 def problem1():
     # Multiples of 3 or 5
 
@@ -119,6 +122,28 @@ def problem8():
     print(largest_product)
 
 
+def problem9():
+    # Special Pythagorean triplet
+
+    a = 1
+    b = 2
+    c = 0
+    sum = 0
+
+    while sum != 1000:
+        if b < 500:
+            b += 1
+        else:
+            a += 1
+            b = a + 1
+        c = (a*a) + (b*b)
+        c = math.sqrt(c)
+        if int(c) == c:
+            sum = a + b + c
+
+    print(a*b*c)
+
+
 def problem10():
     # Summation of primes
 
@@ -140,5 +165,3 @@ def problem10():
     for i in prime:
         sum += i
     print(sum)
-
-   
