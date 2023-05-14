@@ -165,3 +165,34 @@ def problem10():
     for i in prime:
         sum += i
     print(sum)
+
+
+def problem4():
+    a = 100
+    b = 100
+    largest_palindrome = 0
+
+    while b != 1000:
+        product = [a*b]
+        reverse = []
+
+        for _ in product:
+            for i in str(_):
+                reverse.insert(0, i)
+
+        reverse = "".join(reverse)
+        product = product[0]
+
+        if str(product) == str(reverse):
+            if product > largest_palindrome:
+                largest_palindrome = product
+        if a < 1000:
+            a += 1
+        else:
+            b += 1
+            a = b
+
+    print(largest_palindrome)
+
+
+problem4()
