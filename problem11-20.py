@@ -131,3 +131,26 @@ def problem13():
                 sum.append(str(digit))
     sum = "".join(sum)
     print(sum)
+
+
+def problem14():
+    # Longest Collatz sequence
+    # 837799
+
+    longest_sequence = 0
+    sequence = []
+    for n in range(2, 1000001, 1):
+        starting_number = n
+        while n != 1:
+            sequence.append(n)
+            if n % 2 == 0:
+                n = n/2
+            else:
+                n = (3*n) + 1
+            if n == 1:
+                sequence.append(n)
+                if len(sequence) > longest_sequence:
+                    longest_sequence = len(sequence)
+                    result = starting_number
+                sequence = []
+    print(result)
