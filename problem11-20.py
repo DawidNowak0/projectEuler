@@ -5,6 +5,7 @@ def problem12():
     divisors = []
     number = 0
     i = 0
+
     while len(divisors) < 501:
         i += 1
         number += i
@@ -121,9 +122,11 @@ def problem13():
                '20849603980134001723930671666823555245252804609722',
                '53503534226472524250874054075591789781264330331690']
     sum = 0
+
     for line in numbers:
         sum += int(line)
     sum = [sum]
+
     for i in sum:
         sum = []
         for digit in str(i):
@@ -139,6 +142,8 @@ def problem14():
 
     longest_sequence = 0
     sequence = []
+    result = 0
+
     for n in range(2, 1000001, 1):
         starting_number = n
         while n != 1:
@@ -154,3 +159,15 @@ def problem14():
                     result = starting_number
                 sequence = []
     print(result)
+
+
+def problem16():
+    # Power digit sum
+    # 1366
+
+    n = pow(2, 1000)
+    sum = 0
+
+    for i in str(n):
+        sum += int(i)
+    print(sum)
