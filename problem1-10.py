@@ -226,39 +226,3 @@ def problem10():
     for i in prime:
         sum += i
     print(sum)
-
-
-def problem17():
-    # Number letter counts
-    #
-
-    count = ""
-    one_nine = ['', "one", 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    ten_nineteen = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
-    twenty_ninety = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-
-    for i in range(1, 1001, 1):
-        if i < 10:
-            count += one_nine[i]
-        elif i < 20:
-            count += ten_nineteen[i-10]
-        elif i < 100:
-            for j in range(8):
-                for n in range(0, 10, 1):
-                    count += twenty_ninety[j]
-                    count += one_nine[n]
-        elif i < 1000:
-            for x in range(9):
-                for j in range(8):
-                    for n in range(0, 10, 1):
-                        count += one_nine[n]
-                        count += twenty_ninety[j]
-                        count += "hundred"
-                        count += one_nine[x]
-        else:
-            count += "onethousand"
-
-    print(len(count))
-
-
-problem17()
