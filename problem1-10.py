@@ -6,6 +6,7 @@ def problem1():
     # 233168
 
     sum = 0
+
     for i in range(1000):
         if i % 3 == 0 or i % 5 == 0:
             sum += i
@@ -21,6 +22,7 @@ def problem2():
     first = 0
     second = 1
     i = 0
+
     while i < 1:
         fib = first + second
         first = second
@@ -67,10 +69,8 @@ def problem4():
         for _ in product:
             for i in str(_):
                 reverse.insert(0, i)
-
         reverse = "".join(reverse)
         product = product[0]
-
         if str(product) == str(reverse):
             if product > largest_palindrome:
                 largest_palindrome = product
@@ -115,7 +115,6 @@ def problem6():
         sum += i
 
     squares_of_sum = sum * sum
-
     print(squares_of_sum - sum_of_squares)
 
 
@@ -127,11 +126,11 @@ def problem7():
     n = 2
 
     while len(prime) < 10001:
-        is_prime = 1
+        is_prime = True
         for i in prime:
             if n % i == 0:
-                is_prime = 0
-        if is_prime == 1:
+                is_prime = False
+        if is_prime:
             prime.append(n)
         n += 1
 
@@ -213,16 +212,16 @@ def problem10():
     prime = []
 
     while n < 2000000:
-        is_prime = 1
+        is_prime = True
         for i in prime:
             if i > int(n / 2) + 1:
                 break
             if n % i == 0:
-                is_prime = 0
-        if is_prime == 1:
+                is_prime = False
+        if is_prime:
             prime.append(n)
-            print(n)
         n += 1
     for i in prime:
         sum += i
+
     print(sum)
