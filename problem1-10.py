@@ -1,6 +1,3 @@
-import math
-
-
 def problem1():
     # Multiples of 3 or 5
     # 233168
@@ -196,7 +193,7 @@ def problem9():
             a += 1
             b = a + 1
         c = (a * a) + (b * b)
-        c = math.sqrt(c)
+        c = c ** (1/2)
         if int(c) == c:
             sum = a + b + c
 
