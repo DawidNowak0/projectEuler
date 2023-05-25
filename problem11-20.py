@@ -333,12 +333,11 @@ def problem18():
 
 def problem19():
     # Counting Sundays
-    # In progress
+    # 171
 
     days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     start_date = [1, 1, 1901]
     end_date = [31, 12, 2000]
-    sundays_count = 0
 
     def leap_year(year):
         if int(year) % 4 == 0:
@@ -364,26 +363,35 @@ def problem19():
 
     def sunday_counting():
         date = start_date
-        days_count = 0
-        while date[0] != end_date[0]:
-            if date[0] < days_in_month[date[1] - 1]:
+        day = start_day_of_week()
+        sunday_count = 0
+
+        while date[2] <= end_date[2]:
+            while date[0] != days_in_month[date[1]-1]:
+                if day == 7:
+                    day = 0
+                day += 1
                 date[0] += 1
-                days_count += 1
+            if date[1] == 2 and leap_year(str(date[2])):
+                if day == 7:
+                    day = 0
+                day += 1
+            if date[1] == 12:
+                if day == 7:
+                    day = 0
+                date[2] += 1
+                date[1] = 1
+                date[0] = 1
+                day += 1
             else:
-                if date[1] == 2 and leap_year(str(date[2])):
-                    date[0] += 1
-                    days_count += 1
-                else:
-                    date[0] = 1
-                    days_count += 1
-                    if date[1] == 12:
-                        date[1] = 1
-                        date[2] += 1
-                    else:
-                        date[1] += 1
-        return days_count
+                if day == 7:
+                    day = 0
+                date[1] += 1
+                date[0] = 1
+                day += 1
+            if day == 7:
+                sunday_count += 1
+                day = 0
+        return sunday_count
 
     print(sunday_counting())
-
-
-problem19()
