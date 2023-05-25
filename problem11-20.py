@@ -351,8 +351,18 @@ def problem19():
                     elif int(year) % 400 == 0:
                         return True
 
-    def start_day_of_week(date):
-        monday = [1, 1, 1900]
+    def start_day_of_week(start_date):
+        date = [1, 1, 1900]
+        day_count = 0
+        while start_date[2] != date[2]:
+            if leap_year(str(date[2])):
+                day_count += 1
+            for num in days_in_month:
+                day_count += num
+            date[2] += 1
+        return (day_count % 7) + 1
+
+    print(start_day_of_week([1, 1, 1909]))
 
 
 problem19()
