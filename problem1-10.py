@@ -131,7 +131,7 @@ def problem7():
             prime.append(n)
         n += 1
 
-    print(prime[len(prime) - 1])
+    print(prime[10000])
 
 
 def problem8():
@@ -211,14 +211,11 @@ def problem10():
     while n < 2000000:
         is_prime = True
         for i in prime:
-            if i > int(n / 2) + 1:
-                break
             if n % i == 0:
                 is_prime = False
         if is_prime:
             prime.append(n)
+            sum += n
         n += 1
-    for i in prime:
-        sum += i
 
     print(sum)
