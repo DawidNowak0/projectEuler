@@ -395,3 +395,17 @@ def problem19():
         return sunday_count
 
     print(sunday_counting())
+
+
+def problem20():
+    # Factorial digit sum
+    # 648
+
+    n = 1
+    sum = 0
+
+    for i in range(1, 101):
+        n = n * i
+    for i in str(n):
+        sum += int(i)
+    print(sum)
