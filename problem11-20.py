@@ -264,37 +264,47 @@ def problem16():
 
 def problem17():
     # Number letter counts
-    # In progress
+    # 21124
 
-    count = ""
-    one_nine = ['', "one", 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    ten_nineteen = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen',
-                    'nineteen']
-    twenty_ninety = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+    letter = ""
+    one_nine = {1: "one", 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine'}
+    ten_nineteen = {10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen'}
+    twenty_ninety = {1: 'ten', 2: 'twenty', 3: 'thirty', 4: 'forty', 5: 'fifty', 6: 'sixty', 7: 'seventy', 8: 'eighty', 9: 'ninety'}
+    hundred_thousand = {1: "hundred", 10: "thousand"}
 
-    for i in range(1, 1001, 1):
+    for i in range(1, 1001):
         if i < 10:
-            count += one_nine[i]
+            letter += one_nine[i]
         elif i < 20:
-            count += ten_nineteen[i - 10]
+            letter += ten_nineteen[i]
+        elif int(str(i)[1]) == 0 and i < 100:
+            letter += twenty_ninety[int(str(i)[0])]
         elif i < 100:
-            for j in range(8):
-                for n in range(0, 10, 1):
-                    count += twenty_ninety[j]
-                    count += one_nine[n]
+            letter += twenty_ninety[int(str(i)[0])]
+            letter += one_nine[int(str(i)[1])]
+        elif i == 1000:
+            letter += 'one'
+            letter += hundred_thousand[10]
+        elif int(str(i)[1:3]) == 00:
+            letter += hundred_thousand[1]
+            letter += one_nine[int(str(i)[0])]
         elif i < 1000:
-            for x in range(9):
-                for j in range(8):
-                    for n in range(0, 10, 1):
-                        count += one_nine[n]
-                        count += twenty_ninety[j]
-                        count += "hundred"
-                        count += one_nine[x]
-        else:
-            count += "one thousand"
+            letter += hundred_thousand[1]
+            letter += one_nine[int(str(i)[0])]
+            letter += 'and'
+            if int(str(i)[1:3]) < 10:
+                letter += one_nine[int(str(i)[2])]
+            elif int(str(i)[1:3]) < 20:
+                letter += ten_nineteen[int(str(i)[1:3])]
+            elif int(str(i)[2]) == 0:
+                letter += twenty_ninety[int(str(i)[1])]
+            else:
+                letter += twenty_ninety[int(str(i)[1])]
+                letter += one_nine[int(str(i)[2])]
+    print(len(letter))
 
-    print(len(count))
 
+problem17()
 
 def problem18():
     # Maximum path sum I
