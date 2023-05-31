@@ -20,3 +20,29 @@ def problem21():
             if proper_divisors(b) == a:
                 sum_of_amicable += a
     print(sum_of_amicable)
+
+
+def problem22():
+    # Names Scores
+
+    file = open("names.txt", "r")
+    names = []
+    name = ""
+
+    for line in file:
+        for letter in line:
+            if letter == '"':
+                a = 0
+            elif letter == ",":
+                names.append(name)
+                name = ""
+            else:
+                name += letter
+
+    for name in names:
+        score = 0
+        for letter in name:
+            score += ord(letter)-64
+
+
+problem22()
