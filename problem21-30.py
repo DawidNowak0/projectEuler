@@ -24,6 +24,7 @@ def problem21():
 
 def problem22():
     # Names Scores
+    # 871198282
 
     file = open("names.txt", "r")
     names = []
@@ -31,18 +32,22 @@ def problem22():
 
     for line in file:
         for letter in line:
-            if letter == '"':
-                a = 0
-            elif letter == ",":
+            if letter == '"' and len(name) > 0:
                 names.append(name)
                 name = ""
+            elif letter == '"' or letter == ",":
+                a = 0
             else:
                 name += letter
+    names.sort()
+    index = 1
+    total = 0
 
     for name in names:
         score = 0
         for letter in name:
             score += ord(letter)-64
-
-
-problem22()
+        score *= index
+        total += score
+        index += 1
+    print(total)
