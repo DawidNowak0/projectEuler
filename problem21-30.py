@@ -51,3 +51,23 @@ def problem22():
         total += score
         index += 1
     print(total)
+
+
+def problem25():
+    # 1000-digit Fibonacci Number
+    # 4782
+
+    fibonacci = 1
+    second = 0
+    index = 1
+    n = 1
+
+    for i in range(999):
+        n *= 10
+
+    while fibonacci < n:
+        fib = fibonacci+second
+        second = fibonacci
+        fibonacci = fib
+        index += 1
+    print(index)
