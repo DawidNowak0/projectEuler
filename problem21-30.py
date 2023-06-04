@@ -71,3 +71,19 @@ def problem25():
         fibonacci = fib
         index += 1
     print(index)
+
+
+def problem29():
+    # Distinct Powers
+    # 9183
+
+    a = 2
+    lista = []
+
+    while a <= 100:
+        b = 2
+        while b <= 100:
+            lista.append(a**b)
+            b += 1
+        a += 1
+    print(len(set(lista)))
