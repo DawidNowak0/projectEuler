@@ -36,7 +36,7 @@ def problem22():
                 names.append(name)
                 name = ""
             elif letter == '"' or letter == ",":
-                a = 0
+                name += ""
             else:
                 name += letter
     names.sort()
@@ -87,3 +87,23 @@ def problem29():
             b += 1
         a += 1
     print(len(set(lista)))
+
+
+def problem30():
+    # Digit Fifth Powers
+    # 443839
+
+    i = 10
+    sum = 0
+
+    while i < 400_000:
+        number = []
+        sum_of_digits = 0
+        for digit in str(i):
+            number.append(digit)
+        for n in number:
+            sum_of_digits += int(n)**5
+        if sum_of_digits == i:
+            sum += sum_of_digits
+        i += 1
+    print(sum)
